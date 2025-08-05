@@ -1,0 +1,22 @@
+```bash
+class Solution {
+public:
+    int numOfUnplacedFruits(vector<int>& fruits, vector<int>& baskets) {
+        int ans = 0;
+        int n = fruits.size();
+        vector<bool> empty(n, true);
+        for(int i=0;i<n;i++) {
+            bool placed = false;
+            for(int j=0;j<n;j++) {
+                if(empty[j] && fruits[i] <= baskets[j]) {
+                    empty[j] = false;
+                    placed = true;
+                    break;
+                }
+            }
+            if(!placed) ans++;
+        }
+        return ans;
+    }
+};
+
