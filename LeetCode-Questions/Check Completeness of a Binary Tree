@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        if(!root) return 0;
+        return countNodes(root->left)+countNodes(root->right)+1;
+    }
+
+    bool isCBT(TreeNode* root, int index, int totalNodes) {
+        if(!root) return true;
+        if(index >= totalNodes) return false;
+        return isCBT(root->left, 2*index+1, totalNodes) &&
+        isCBT(root->right, 2*index+2, totalNodes);
+    }
+    
+    bool isCompleteTree(TreeNode* root) {
+        int totalNodes = countNodes(root);
+        return isCBT(root, 0, totalNodes);
+    }
+};
