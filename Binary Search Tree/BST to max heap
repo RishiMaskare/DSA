@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    void inorder(Node* root, vector<int>& ans) {
+        if(!root) return;
+        inorder(root->left, ans);
+        ans.push_back(root->data);
+        inorder(root->right, ans);
+    }
+    void fillNodes(Node* root, vector<int>& in, int& idx) {
+        if(!root) return;
+        fillNodes(root->left, in, idx);
+        fillNodes(root->right, in, idx);
+        root->data = in[idx++];
+    }
+    void convertToMaxHeapUtil(Node* root) {
+        // Your code goes here
+        vector<int> in;
+        inorder(root, in);
+        int idx = 0;
+        fillNodes(root, in, idx);
+    }
+};
