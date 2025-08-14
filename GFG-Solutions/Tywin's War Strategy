@@ -1,0 +1,32 @@
+class Solution {
+  public:
+    int minSoldiers(vector<int>& arr, int k) {
+        // code here
+        int n = arr.size();
+        int target = (n + 1) / 2; // ceil(n/2)
+    
+        int lucky_count = 0;
+        vector<int> needed;
+    
+        for (int x : arr) {
+            if (x % k == 0) {
+                lucky_count++;
+            } else {
+                needed.push_back(k - (x % k));
+            }
+        }
+        
+        if (lucky_count >= target) return 0;
+        
+        sort(needed.begin(), needed.end());
+        
+        int extra_needed = target - lucky_count;
+        int total = 0;
+        
+        for (int i = 0; i < extra_needed; i++) {
+            total += needed[i];
+        }
+        
+        return total;
+    }
+};
