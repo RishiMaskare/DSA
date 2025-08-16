@@ -48,4 +48,7 @@ This repo is organized **topic-wise** for easy navigation :
 ---
 
 > 💬 _“Consistency beats motivation.”_ — Let’s keep grinding 🚀
+## 📊 LeetCode Progress
+
+![LeetCode Stats](https://leetcard.jacoblin.cool/Rishi_Maskare?ext=activity)
 
