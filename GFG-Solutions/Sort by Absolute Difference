@@ -1,0 +1,17 @@
+class Solution {
+  public:
+    void rearrange(vector<int> &arr, int x) {
+        // code here
+        stable_sort(arr.begin(), arr.end(), [&](int a, int b) {
+            int da = abs(a-x), db = abs(b-x);
+            if(da == db) {
+                return false;
+            }
+            return da < db;
+        });
+    }
+};
+
+| Function |	| What it does |
+| sort() |	| Sorts elements, but does NOT preserve the original order of equal items |
+| stable_sort() | |	Sorts elements and keeps the original relative order of equal items |
