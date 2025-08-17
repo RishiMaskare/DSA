@@ -12,7 +12,9 @@ class Solution {
     }
 };
 
+/*
 | Function        | What it does                                                                 |
 |-----------------|------------------------------------------------------------------------------|
 | `sort()`        | Sorts elements, but **does NOT** preserve the original order of equal items  |
 | `stable_sort()` | Sorts elements **and** keeps the **original relative order** of equal items  |
+*/
