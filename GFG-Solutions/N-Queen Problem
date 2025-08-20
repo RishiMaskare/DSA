@@ -1,0 +1,42 @@
+// User function Template for C++
+
+class Solution {
+  public:
+    bool isSafe(vector<int>& board, int row, int col, int n) {
+        for (int i = 0; i < row; i++) {
+            if (board[i] == col || // Same column
+                board[i] - i == col - row || // Left diagonal
+                board[i] + i == col + row) { // Right diagonal
+                return false;
+            }
+        }
+        return true;
+    }
+    void nQueens(vector<int>& board, int row, int n,
+                 vector<vector<int>>& ans) {
+        if (row == n) {
+            vector<int> solution;
+            for (int i = 0; i < n; i++){
+                solution.push_back(board[i]+1);
+            }
+            ans.push_back(solution);
+            return;
+        }
+        for (int j = 0; j < n; j++) {
+            if (isSafe(board, row, j, n)) {
+                board[row] = j;
+                nQueens(board, row + 1, n, ans);
+            }
+        }
+    }
+    vector<vector<int>> nQueen(int n) {
+        // code here
+        vector<int> board(n, -1);
+        vector<vector<int>> ans;
+        nQueens(board, 0, n, ans);
+        return ans;
+    }
+};
+
+
+
