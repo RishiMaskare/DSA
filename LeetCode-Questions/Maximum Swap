@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int maximumSwap(int num) {
+        string s = to_string(num);
+        vector<int> last(10, -1);
+        int n = s.size();
+        for(int i=0;i<n;i++) {
+            last[s[i]-'0'] = i;
+        }
+        for(int i=0;i<n;i++) {
+            int currDigit = s[i]-'0';
+            for(int j=9;j>currDigit;j--) {
+                if(last[j] > i) {
+                    swap(s[i], s[last[j]]);
+                    return stoi(s);
+                }
+            }
+        }
+        return stoi(s);
+    }
+};
