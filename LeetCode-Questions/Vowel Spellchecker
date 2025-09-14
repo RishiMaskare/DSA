@@ -1,0 +1,41 @@
+class Solution {
+private:
+    string toLower(string s) {
+        for(char &ch : s) {
+            ch = tolower(ch);
+        }
+        return s;
+    }
+    string mask(string s) {
+        for(auto &ch : s) {
+            if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                ch = '*';
+            }
+        }
+        return s;
+    }
+public:
+    vector<string> spellchecker(vector<string>& wordlist, vector<string>& queries) {
+        unordered_set<string> exact(wordlist.begin(), wordlist.end());
+        unordered_map<string, string> casemap; // lowercase -> wordlist[i]
+        unordered_map<string, string> vowelmap; // vowel * -> wordlist[i]
+        for(string word : wordlist) {
+            string lower = toLower(word);
+            string masked = mask(toLower(word));
+            if(!casemap.count(lower)) {
+                casemap[lower] = word;
+            }
+            if(!vowelmap.count(masked)) {
+                vowelmap[masked] = word;
+            }
+        }
+        vector<string> ans;
+        for(string q : queries) {
+            if(exact.count(q)) ans.push_back(q);
+            else if(casemap.count(toLower(q))) ans.push_back(casemap[toLower(q)]);
+            else if(vowelmap.count(mask(toLower(q)))) ans.push_back(vowelmap[mask(toLower(q))]);
+            else ans.push_back("");
+        }
+        return ans;
+    }
+};
