@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> maxKDistinct(vector<int>& nums, int k) {
+        vector<int> ans;
+        priority_queue<int> pq(nums.begin(), nums.end());
+        while(!pq.empty() && ans.size() < k) {
+            if(find(ans.begin(), ans.end(), pq.top()) == ans.end()) {
+                // not found in ans
+                ans.push_back(pq.top());
+                pq.pop();
+            } else {
+                pq.pop();
+            }
+        }
+        return ans;
+    }
+};
