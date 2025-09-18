@@ -1,0 +1,51 @@
+class TaskManager {
+public:
+    // taskId -> {priority, userId}
+    unordered_map<int, pair<int, int>> taskInfo;
+    // {priority, taskId, userId}
+    priority_queue<tuple<int, int, int>> pq;
+    TaskManager(vector<vector<int>>& tasks) {
+        for(auto task : tasks) {
+            int userId = task[0], taskId = task[1], priority = task[2];
+            taskInfo[taskId] = {priority, userId};
+            pq.push({priority, taskId, userId});
+        }
+    }
+    
+    void add(int userId, int taskId, int priority) {
+        taskInfo[taskId] = {priority, userId};
+        pq.push({priority, taskId, userId});
+    }
+    
+    void edit(int taskId, int newPriority) {
+        auto [oldPriority, userId] = taskInfo[taskId];
+        taskInfo[taskId] = {newPriority, userId};
+        pq.push({newPriority, taskId, userId});
+    }
+    
+    void rmv(int taskId) {
+        taskInfo.erase(taskId);
+    }
+    
+    int execTop() {
+        while(!pq.empty()) {
+            auto [prio, taskId, userId] = pq.top();
+            if(taskInfo.count(taskId) && taskInfo[taskId].first == prio) {
+                pq.pop();
+                taskInfo.erase(taskId);
+                return userId;
+            }
+            pq.pop(); // stale entry
+        }
+        return -1; // no tasks left
+    }
+};
+
+/**
+ * Your TaskManager object will be instantiated and called as such:
+ * TaskManager* obj = new TaskManager(tasks);
+ * obj->add(userId,taskId,priority);
+ * obj->edit(taskId,newPriority);
+ * obj->rmv(taskId);
+ * int param_4 = obj->execTop();
+ */
