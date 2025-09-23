@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        int subtract = 1, ans = 0;
+        while(n) {
+            n -= subtract;
+            subtract++; ans++;
+            if(n < subtract) return ans;
+        }
+        return ans;
+    }
+};
+
+// My LeetCode Solution Link :- https://leetcode.com/problems/arranging-coins/solutions/7216870/extremely-easy-code-c-optimal-solution-b-bfsn
+// Would love to get some upvotes and comments
