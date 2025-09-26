@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int smallestAbsent(vector<int>& nums) {
+        int n = nums.size();
+        double avg = 0;
+        for(int val : nums) {
+            avg += val;
+        }
+        avg /= n;
+        int i = (avg > 0) ? (avg + 1) : 1;
+        while(find(nums.begin(), nums.end(), i) != nums.end()) {
+            i++;
+        }
+        return i;
+     }
+};
