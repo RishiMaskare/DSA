@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> successfulPairs(vector<int>& spells, vector<int>& potions, long long success) {
+        sort(potions.begin(), potions.end());
+        int n = spells.size(), m = potions.size();
+        vector<int> pairs(n, 0);
+        for(int i=0;i<n;i++) {
+            long long need = (success + spells[i] - 1) / spells[i];
+            int st = 0, end = m-1, index = m;
+            while(st <= end) {
+                int mid = st+(end-st)/2;
+                if(potions[mid] >= need) {
+                    index = mid;
+                    end = mid-1;
+                } else {
+                    st = mid+1;
+                }
+            }
+            pairs[i] = m-index;
+        }
+        return pairs;
+    }
+};
