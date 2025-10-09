@@ -1,0 +1,33 @@
+class MyHashMap {
+public:
+    vector<pair<int, int>> hashMap;
+    MyHashMap() {
+        
+    }
+    
+    void put(int key, int value) {
+        for (auto &p : hashMap) {
+            if (p.first == key) {
+                p.second = value;  // update existing
+                return;
+            }
+        }
+        hashMap.push_back({key, value}); // else insert new
+    }
+    
+    int get(int key) {
+        for(auto it : hashMap) {
+            if(it.first == key) return it.second;
+        }
+        return -1;
+    }
+    
+    void remove(int key) {
+        for(auto it = hashMap.begin(); it != hashMap.end(); it++) {
+            if(it->first == key) {
+                hashMap.erase(it);
+                break;
+            }
+        }
+    }
+};
