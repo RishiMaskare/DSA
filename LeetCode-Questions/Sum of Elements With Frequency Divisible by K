@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int sumDivisibleByK(vector<int>& nums, int k) {
+        int ans = 0;
+        unordered_map<int, int> m;
+        for(int num : nums) {
+            m[num]++;
+        }
+        for(auto [num, freq] : m) {
+            if(freq%k == 0) {
+                ans += (freq * num);
+            }
+        }
+        return ans;
+    }
+};
