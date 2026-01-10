@@ -1,0 +1,32 @@
+class Solution {
+  public:
+    int atMostKDistinct(string& s, int k) {
+        if (k < 0) return 0;
+
+        int n = s.size();
+        int l = 0, cnt = 0;
+        int freq[26] = {0};
+        int distinct = 0;
+
+        for (int r = 0; r < n; r++) {
+            if (freq[s[r] - 'a'] == 0)
+                distinct++;
+            freq[s[r] - 'a']++;
+
+            while (distinct > k) {
+                freq[s[l] - 'a']--;
+                if (freq[s[l] - 'a'] == 0)
+                    distinct--;
+                l++;
+            }
+
+            cnt += (r - l + 1);
+        }
+
+        return cnt;
+    }
+
+    int countSubstr(string& s, int k) {
+        return atMostKDistinct(s, k) - atMostKDistinct(s, k - 1);
+    }
+};
