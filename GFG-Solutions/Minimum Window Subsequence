@@ -1,0 +1,31 @@
+class Solution {
+  public:
+    string minWindow(string& s1, string& s2) {
+        // Code here
+        int i = 0, j = 0, k = 0, res = INT_MAX;
+        int n = s1.size(), m = s2.size();
+        string str = "";
+        while(j<n) {
+            if(s1[j] == s2[k]) {
+                k++;
+            }
+            if(k == m) {
+                i = j, k = m-1;
+                while(i >= 0 && k >= 0) {
+                    if(s1[i] == s2[k]) {
+                        k--;
+                    }
+                    i--;
+                } 
+                i++;
+                if(res > j-i+1) {
+                    res = j-i+1;
+                    str = s1.substr(i, j-i+1);
+                }
+                k = 0, j = i+1;
+            }
+            j++;
+        }
+        return str;
+    }
+};
