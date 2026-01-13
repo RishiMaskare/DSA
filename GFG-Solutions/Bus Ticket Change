@@ -1,0 +1,23 @@
+class Solution {
+  public:
+    bool canServe(vector<int> &arr) {
+        // code here
+        unordered_map<int, int> m;
+        for(int val : arr) {
+            m[val]++;
+            if(val == 10) {
+                if(m[5] == 0) return false;
+                else m[5]--;
+            } else if(val == 20) {
+                if(m[5] == 0) return false;
+                if(m[10] == 0) {
+                    if(m[5] < 3) return false;
+                    else m[5] -= 3;
+                } else {
+                    m[10]--; m[5]--;
+                }
+            }
+        }
+        return true;
+    }
+};
