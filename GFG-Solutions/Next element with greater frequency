@@ -1,0 +1,24 @@
+class Solution {
+  public:
+    vector<int> nextFreqGreater(vector<int>& arr) {
+        // code here
+        int n = arr.size();
+        unordered_map<int, int> m;
+        vector<int> ans(n, -1);
+        for(int val : arr) {
+            m[val]++;
+        }
+        stack<int> st;
+        for(int i=n-1;i>=0;i--) {
+            while(!st.empty()) {
+                if(m[st.top()] > m[arr[i]]) {
+                    ans[i] = st.top(); break;
+                    
+                }
+                st.pop();
+            }
+            st.push(arr[i]);
+        }
+        return ans;
+    }
+};
