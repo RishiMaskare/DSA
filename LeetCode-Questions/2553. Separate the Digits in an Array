@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> separateDigits(vector<int>& nums) {
+        string str = "";
+        for(int val : nums) {
+            str += to_string(val);
+        }
+        cout<<str;
+        vector<int> ans;
+        for(char ch : str) {
+            ans.push_back(ch-'0');
+        }
+        return ans;
+    }
+};
+
+// Solution Link :- https://leetcode.com/problems/separate-the-digits-in-an-array/solutions/8186442/easiest-string-solution-beginner-friendl-bs8q/
