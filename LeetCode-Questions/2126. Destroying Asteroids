@@ -1,0 +1,27 @@
+// Greedy Approach 
+// C++ Code
+class Solution {
+public:
+    bool asteroidsDestroyed(int mass, vector<int>& asteroids) {
+        sort(asteroids.begin(), asteroids.end());
+        long long currVal = mass;
+        for(int val : asteroids) {
+            if(val > currVal) return false;
+            currVal += val;
+        }
+        return true;
+    }
+};
+
+// Java Code
+class Solution {
+    public boolean asteroidsDestroyed(int mass, int[] asteroids) {
+        Arrays.sort(asteroids);
+        long currVal = mass;
+        for(int val : asteroids) {
+            if(val <= currVal) currVal += val;
+            else return false;
+        }
+        return true;
+    }
+}
