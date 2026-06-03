@@ -19,10 +19,11 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 
 ## 📊 Progress Tracker
 
-| Day | Topic  | Problems Solved | Status |
+| Day | Topic | Problems Solved | Status |
 |------|--------|----------------|---------|
-| 1 | Arrays | 3/3 | ✅ Completed |
-| 2 | Arrays | 3/3 | ✅ Completed |
+| 1 | Arrays | 3/3 | ✅ |
+| 2 | Arrays | 3/3 | ✅ |
+| 3 | Arrays Part-2 | 3/3 | ✅ |
 
 
 ---
