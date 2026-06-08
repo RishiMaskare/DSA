@@ -28,9 +28,10 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 5 | Arrays Part - 3 | 3/3 | ✅ |
 | 6 | Arrays Part - 3 | 3/3 | ✅ |
 | 7 | Arrays Part - 4 | 3/3 | ✅ |
+| 8 | Arrays Part - 4 | 3/3 | ✅ |
 
-**Total Days Completed:** 7/45  
-**Total Problems Solved:** 21
+**Total Days Completed:** 8/45  
+**Total Problems Solved:** 24
 ---
 
 ## 📂 Folder Structure
