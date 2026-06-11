@@ -31,6 +31,7 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 8 | Arrays Part - 4 | 3/3 | ✅ |
 | 9 | Linked List | 3/3 | ✅ |
 | 10 | Linked List | 3/3 | ✅ |
+| 11 | Linked List Part - 2 | 3/3 | ✅ |
 
 **Total Days Completed:** 10/45  
 **Total Problems Solved:** 30
