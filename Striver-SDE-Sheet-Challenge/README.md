@@ -34,9 +34,10 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 11 | Linked List Part - 2 | 3/3 | ✅ |
 | 12 | Linked List Part - 2 | 3/3 | ✅ |
 | 13 | Linked List and Arrays | 3/3 | ✅ |
+| 14 | Linked List and Arrays | 3/3 | ✅ |
 
-**Total Days Completed:** 13/45  
-**Total Problems Solved:** 39
+**Total Days Completed:** 14/45  
+**Total Problems Solved:** 42
 ---
 
 ## 📂 Folder Structure
