@@ -38,9 +38,10 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 15 | Greedy Algorithm | 4/4 | ✅ |
 | 16 | Greedy Algorithm + Recursion | 4/4 | ✅ |
 | 17 | Recursion | 4/4 | ✅ |
+| 18 | Recursion and Backtracking | 3/3 | ✅ |
 
-**Total Days Completed:** 17/45  
-**Total Problems Solved:** 54
+**Total Days Completed:** 18/45  
+**Total Problems Solved:** 57
 ---
 
 ## 📂 Folder Structure
