@@ -1,0 +1,68 @@
+/*
+========================================================
+Problem: Single Element in a Sorted Array
+========================================================
+
+Intuition:
+In a sorted array:
+
+Before the single element:
+- Pairs start at even indices.
+  (0,1), (2,3), (4,5)...
+
+After the single element:
+- Pairing pattern breaks.
+- Pairs start at odd indices.
+
+Use Binary Search to find where
+this pattern changes.
+
+--------------------------------------------------------
+Approach:
+1. Apply Binary Search.
+2. Force mid to be even.
+3. Compare nums[mid] and nums[mid+1].
+4. If equal:
+      Single element lies on right.
+5. Otherwise:
+      Single element lies on left.
+6. Return remaining element.
+
+--------------------------------------------------------
+Time Complexity:
+O(log N)
+
+--------------------------------------------------------
+Space Complexity:
+O(1)
+
+--------------------------------------------------------
+*/
+
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+
+        int low = 0;
+        int high = nums.size() - 1;
+
+        while(low < high) {
+
+            int mid = low + (high - low) / 2;
+
+            if(mid % 2 == 1)
+                mid--;
+
+            if(nums[mid] == nums[mid + 1]) {
+                low = mid + 2;
+            }
+            else {
+                high = mid;
+            }
+        }
+
+        return nums[low];
+    }
+};
+
+// Striver SDE Sheet Challenge - Day 20
