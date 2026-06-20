@@ -1,0 +1,78 @@
+/*
+========================================================
+Problem: Search in Rotated Sorted Array
+========================================================
+
+Intuition:
+Even after rotation, one half of the array
+is always sorted.
+
+Use Binary Search to identify the sorted half
+and decide where the target can exist.
+
+--------------------------------------------------------
+Approach:
+1. Find mid element.
+2. If target is found, return index.
+3. Check which half is sorted:
+      - Left half sorted
+      - Right half sorted
+4. Determine if target lies in sorted half.
+5. Discard the other half.
+6. Continue Binary Search.
+
+--------------------------------------------------------
+Time Complexity:
+O(log N)
+
+--------------------------------------------------------
+Space Complexity:
+O(1)
+
+--------------------------------------------------------
+*/
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+
+        int low = 0;
+        int high = nums.size() - 1;
+
+        while(low <= high) {
+
+            int mid = low + (high - low) / 2;
+
+            if(nums[mid] == target)
+                return mid;
+
+            // Left half is sorted
+            if(nums[low] <= nums[mid]) {
+
+                if(target >= nums[low] &&
+                   target < nums[mid]) {
+                    high = mid - 1;
+                }
+                else {
+                    low = mid + 1;
+                }
+            }
+
+            // Right half is sorted
+            else {
+
+                if(target > nums[mid] &&
+                   target <= nums[high]) {
+                    low = mid + 1;
+                }
+                else {
+                    high = mid - 1;
+                }
+            }
+        }
+
+        return -1;
+    }
+};
+
+// Striver SDE Sheet Challenge - Day 20
