@@ -1,0 +1,84 @@
+/*
+========================================================
+Problem: Median in a Row Wise Sorted Matrix
+========================================================
+
+Intuition:
+The matrix is row-wise sorted, but not fully sorted.
+
+Instead of flattening and sorting all elements,
+perform Binary Search on the answer space.
+
+For any candidate value 'mid':
+- Count how many elements are <= mid.
+- If count is greater than half of total elements,
+  median lies on the left side.
+- Otherwise, move right.
+
+--------------------------------------------------------
+Approach:
+1. Find minimum element among first column.
+2. Find maximum element among last column.
+3. Binary search between min and max.
+4. For each mid:
+      Count elements <= mid using upper_bound.
+5. Adjust search space accordingly.
+6. Return the smallest value having more than
+   half of the elements less than or equal to it.
+
+--------------------------------------------------------
+Time Complexity:
+O(log(Max-Min) * N * log(M))
+
+N = Rows
+M = Columns
+
+--------------------------------------------------------
+Space Complexity:
+O(1)
+
+--------------------------------------------------------
+*/
+
+class Solution {
+public:
+    int median(vector<vector<int>> &mat) {
+
+        int n = mat.size();
+        int m = mat[0].size();
+
+        int low = INT_MAX;
+        int high = INT_MIN;
+
+        for(int i = 0; i < n; i++) {
+            low = min(low, mat[i][0]);
+            high = max(high, mat[i][m - 1]);
+        }
+
+        int req = (n * m) / 2;
+
+        while(low <= high) {
+
+            int mid = low + (high - low) / 2;
+
+            int cnt = 0;
+
+            for(int i = 0; i < n; i++) {
+                cnt += upper_bound(
+                    mat[i].begin(),
+                    mat[i].end(),
+                    mid
+                ) - mat[i].begin();
+            }
+
+            if(cnt <= req)
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+
+        return low;
+    }
+};
+
+// Striver SDE Sheet Challenge - Day 20
