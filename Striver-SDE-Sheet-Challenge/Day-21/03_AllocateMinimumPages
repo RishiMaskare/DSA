@@ -1,0 +1,93 @@
+/*
+========================================================
+Problem: Allocate Minimum Pages
+========================================================
+
+Intuition:
+We need to minimize the maximum pages
+assigned to any student.
+
+Instead of trying all allocations,
+binary search on the answer.
+
+--------------------------------------------------------
+Approach:
+1. Lower bound:
+      Maximum pages in a single book.
+2. Upper bound:
+      Sum of all pages.
+3. Binary search this range.
+4. For each mid:
+      Check if allocation is possible.
+5. Find the minimum valid answer.
+
+--------------------------------------------------------
+Time Complexity:
+O(N * log(S))
+
+N = Number of Books
+S = Sum of Pages
+
+--------------------------------------------------------
+Space Complexity:
+O(1)
+
+--------------------------------------------------------
+*/
+
+class Solution {
+
+    bool canAllocate(vector<int>& arr, int k, int maxPages) {
+
+        int students = 1;
+        int pages = 0;
+
+        for(int book : arr) {
+
+            if(pages + book <= maxPages) {
+                pages += book;
+            }
+            else {
+
+                students++;
+                pages = book;
+
+                if(students > k)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+public:
+
+    int findPages(vector<int>& arr, int k) {
+
+        int n = arr.size();
+
+        if(k > n) return -1;
+
+        int low = *max_element(arr.begin(), arr.end());
+        int high = accumulate(arr.begin(), arr.end(), 0);
+
+        int ans = -1;
+
+        while(low <= high) {
+
+            int mid = low + (high - low) / 2;
+
+            if(canAllocate(arr, k, mid)) {
+                ans = mid;
+                high = mid - 1;
+            }
+            else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+};
+
+// Striver SDE Sheet Challenge - Day 22
