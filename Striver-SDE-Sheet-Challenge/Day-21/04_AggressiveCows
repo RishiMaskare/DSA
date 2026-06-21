@@ -1,0 +1,84 @@
+/*
+========================================================
+Problem: Aggressive Cows
+========================================================
+
+Intuition:
+We want to maximize the minimum distance
+between any two cows.
+
+Instead of trying all distances,
+binary search on the answer.
+
+--------------------------------------------------------
+Approach:
+1. Sort stall positions.
+2. Binary search on distance:
+      [1 ... maxDistance]
+3. For each distance:
+      Check if k cows can be placed.
+4. If possible:
+      Try larger distance.
+5. Otherwise:
+      Try smaller distance.
+
+--------------------------------------------------------
+Time Complexity:
+O(N log D)
+
+N = Number of Stalls
+D = Maximum Possible Distance
+
+--------------------------------------------------------
+Space Complexity:
+O(1)
+
+--------------------------------------------------------
+*/
+
+class Solution {
+
+    bool canPlace(vector<int>& stalls, int k, int dist) {
+
+        int cows = 1;
+        int lastPos = stalls[0];
+
+        for(int i = 1; i < stalls.size(); i++) {
+
+            if(stalls[i] - lastPos >= dist) {
+
+                cows++;
+                lastPos = stalls[i];
+
+                if(cows >= k)
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+public:
+
+    int aggressiveCows(vector<int>& stalls, int k) {
+
+        sort(stalls.begin(), stalls.end());
+
+        int low = 1;
+        int high = stalls.back() - stalls.front();
+
+        while(low <= high) {
+
+            int mid = low + (high - low) / 2;
+
+            if(canPlace(stalls, k, mid))
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+
+        return high;
+    }
+};
+
+// Striver SDE Sheet Challenge - Day 23
