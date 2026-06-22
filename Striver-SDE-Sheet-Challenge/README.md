@@ -40,9 +40,12 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 17 | Recursion | 4/4 | ✅ |
 | 18 | Recursion and Backtracking | 3/3 | ✅ |
 | 19 | Recursion and Backtracking | 3/3 | ✅ |
+| 20 | Binary Search | 4/4 | ✅ |
+| 21 | Binary Search | 4/4 | ✅ |
+| 22 | Heaps | 3/3 | ✅ |
 
-**Total Days Completed:** 19/45  
-**Total Problems Solved:** 60
+**Total Days Completed:** 22/45  
+**Total Problems Solved:** 71
 ---
 
 ## 📂 Folder Structure
