@@ -43,9 +43,10 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 20 | Binary Search | 4/4 | ✅ |
 | 21 | Binary Search | 4/4 | ✅ |
 | 22 | Heaps | 3/3 | ✅ |
+| 23 | Heaps | 3/3 | ✅ |
 
-**Total Days Completed:** 22/45  
-**Total Problems Solved:** 71
+**Total Days Completed:** 23/45  
+**Total Problems Solved:** 74
 ---
 
 ## 📂 Folder Structure
