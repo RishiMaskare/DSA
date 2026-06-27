@@ -49,8 +49,8 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 26 | Stack and Queue Part - 2 | 3/3 | ✅ |
 | 27 | Stack and Queue Part - 2 | 4/4 | ✅ |
 
-**Total Days Completed:** 26/45  
-**Total Problems Solved:** 84
+**Total Days Completed:** 27/45  
+**Total Problems Solved:** 88
 ---
 
 ## 📂 Folder Structure
