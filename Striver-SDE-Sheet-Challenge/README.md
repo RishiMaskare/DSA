@@ -52,9 +52,10 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 29 | String | 3/3 | ✅ |
 | 30 | String | 3/3 | ✅ |
 | 31 | String Part - 2 | 3/3 | ✅ |
+| 32 | String Part - 2 | 3/3 | ✅ |
 
-**Total Days Completed:** 31/45  
-**Total Problems Solved:** 100
+**Total Days Completed:** 32/45  
+**Total Problems Solved:** 103
 ---
 
 ## 📂 Folder Structure
