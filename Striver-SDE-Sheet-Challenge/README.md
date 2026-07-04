@@ -54,9 +54,10 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 31 | String Part - 2 | 3/3 | ✅ |
 | 32 | String Part - 2 | 3/3 | ✅ |
 | 33 | Binary Tree | 4/4 | ✅ |
+| 34 | Binary Tree | 4/4 | ✅ |
 
-**Total Days Completed:** 33/45  
-**Total Problems Solved:** 107
+**Total Days Completed:** 34/45  
+**Total Problems Solved:** 111
 ---
 
 ## 📂 Folder Structure
