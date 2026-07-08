@@ -58,9 +58,10 @@ The goal of this challenge is to strengthen my Data Structures & Algorithms fund
 | 35 | Binary Tree | 4/4 | ✅ |
 | 36 | Binary Tree Part - 2 | 4/4 | ✅ |
 | 37 | Binary Tree Part - 2 | 4/4 | ✅ |
+| 38 | Binary Tree Part - 3 | 3/3 | ✅ |
 
-**Total Days Completed:** 37/45  
-**Total Problems Solved:** 123
+**Total Days Completed:** 38/45  
+**Total Problems Solved:** 126
 ---
 
 ## 📂 Folder Structure
