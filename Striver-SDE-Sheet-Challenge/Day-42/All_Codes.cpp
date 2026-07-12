@@ -41,21 +41,45 @@ class Solution {
 
 
 
-
 class Solution {
-public:
-    int ans = 0, cnt = 0;
-    void inOrder(TreeNode* root, int k) {
-        if(!root) return;
+  public:
+    int ans = -1, cnt = 0;
+    void inOrder(Node* root, int k) {
+        if(!root || cnt >= k) return;
         inOrder(root->left, k);
+        if(cnt >= k) return;
         cnt++;
         if(cnt == k) {
-            ans = root->val;
+            ans = root->data;
             return;
         }
         inOrder(root->right, k);
     }
-    int kthSmallest(TreeNode* root, int k) {
+
+    int kthSmallest(Node *root, int k) {
+        inOrder(root, k);
+        return ans;
+    }
+};
+
+
+
+
+class Solution {
+  public:
+    int ans = 0, cnt = 0;
+    void inOrder(Node* root, int k) {
+        if(!root) return;
+        inOrder(root->right, k);
+        cnt++;
+        if(cnt == k) {
+            ans = root->data;
+            return;
+        }
+        inOrder(root->left, k);
+    }
+    int kthLargest(Node *root, int k) {
+        // code here
         inOrder(root, k);
         return ans;
     }
